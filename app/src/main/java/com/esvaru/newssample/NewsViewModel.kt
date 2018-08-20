@@ -24,11 +24,12 @@ class NewsViewModel (
     private val selectedArticleData = MutableLiveData<Article>()
 
     init {
+        // This subscription sets the loader status when the query is changed.
+        // This allows the view to display a loading indicator.
         queryPublishSubject
                 .subscribeOn(processScheduler)
                 .observeOn(androidScheduler)
                 .subscribe {
-                    // show the loader when the query is changed
                     val currentStatus = statusData.value
                     statusData.value = LoadingStatus(
                             currentStatus?.data,
@@ -37,6 +38,7 @@ class NewsViewModel (
                     )
                 }
 
+        // This subscription actually triggers the load and sets it on the livedata.
         queryPublishSubject // Load data when the query is changed
                 .debounce(300, TimeUnit.MILLISECONDS, debouceScheduler)
                 .switchMap { getRequestObservable(it) }
@@ -46,10 +48,12 @@ class NewsViewModel (
                     statusData.value = it
                 }
 
+        // Trigger initial load when the VM is created.
         queryPublishSubject.onNext(ArticleQuery())
     }
 
     private fun getRequestObservable(q: ArticleQuery): Observable<LoadingStatus>? {
+        // Create the data fetch observable from retrofit and add some error handling.
         return newsApiService.getHeadLines(q.query)
                 .map { LoadingStatus(it, false) }
                 .onErrorResumeNext { error: Throwable -> // Replace the error with a normal object

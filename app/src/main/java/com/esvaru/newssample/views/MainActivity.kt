@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity(), ArticlesInterface {
     override fun onResume() {
         super.onResume()
 
-        if(supportFragmentManager.findFragmentByTag(NewsListFragment.TAG) == null) {
+        if(supportFragmentManager.findFragmentByTag(NewsListFragment.TAG) == null
+            && supportFragmentManager.findFragmentByTag(NewsDetailFragment.TAG) == null) {
             initializeList()
         }
     }
