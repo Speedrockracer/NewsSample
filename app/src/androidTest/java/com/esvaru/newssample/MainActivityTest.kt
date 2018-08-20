@@ -11,6 +11,7 @@ import org.junit.runner.RunWith
 import android.support.test.rule.ActivityTestRule
 import com.esvaru.newssample.models.Article
 import com.esvaru.newssample.models.ArticleResult
+import com.esvaru.newssample.views.MainActivity
 import com.nhaarman.mockitokotlin2.*
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

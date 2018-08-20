@@ -1,10 +1,12 @@
-package com.esvaru.newssample
+package com.esvaru.newssample.views
 
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.view.ViewCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.esvaru.newssample.NewsViewModel
+import com.esvaru.newssample.R
 import com.esvaru.newssample.models.Article
 import kotlinx.android.synthetic.main.vh_article.view.*
 import org.koin.android.architecture.ext.viewModel

@@ -1,4 +1,4 @@
-package com.esvaru.newssample
+package com.esvaru.newssample.views
 
 import android.annotation.TargetApi
 import android.os.Build

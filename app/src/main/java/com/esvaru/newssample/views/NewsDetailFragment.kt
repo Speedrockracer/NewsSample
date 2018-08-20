@@ -1,4 +1,4 @@
-package com.esvaru.newssample
+package com.esvaru.newssample.views
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
@@ -9,6 +9,8 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.esvaru.newssample.NewsViewModel
+import com.esvaru.newssample.R
 import com.esvaru.newssample.models.Article
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_news_detail.*

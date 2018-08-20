@@ -1,4 +1,4 @@
-package com.esvaru.newssample
+package com.esvaru.newssample.views
 
 import android.app.SearchManager
 import android.arch.lifecycle.Observer
@@ -10,6 +10,8 @@ import android.support.v7.widget.SearchView
 import android.transition.Fade
 import android.transition.Slide
 import android.view.*
+import com.esvaru.newssample.NewsViewModel
+import com.esvaru.newssample.R
 import com.esvaru.newssample.models.LoadingStatus
 import com.pawegio.kandroid.onQueryChange
 import kotlinx.android.synthetic.main.fragment_news_list.*
@@ -29,8 +31,7 @@ class NewsListFragment: Fragment(), ArticlesAdapter.ClickListener {
         })
 
         // Create our enter and exit transitions
-        val exitFade = Fade()
-        exitTransition = exitFade
+        exitTransition = Fade()
         reenterTransition = Slide(Gravity.LEFT)
     }
 

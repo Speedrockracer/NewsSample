@@ -1,14 +1,17 @@
-package com.esvaru.newssample
+package com.esvaru.newssample.views
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.esvaru.newssample.R
 import com.esvaru.newssample.models.Article
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.vh_article.view.*
 
-class ArticlesAdapter(val clickListener: ClickListener?): RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>() {
+class ArticlesAdapter(
+        private val clickListener: ClickListener?
+): RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>() {
     private var items: List<Article> = listOf()
 
     fun setItems(items: List<Article>) {
@@ -49,6 +52,6 @@ class ArticlesAdapter(val clickListener: ClickListener?): RecyclerView.Adapter<A
     }
 
     interface ClickListener {
-        fun onArticleClicked(vh: ArticlesAdapter.ArticleViewHolder, pos: Int)
+        fun onArticleClicked(vh: ArticleViewHolder, pos: Int)
     }
 }
